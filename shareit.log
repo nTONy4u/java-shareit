@@ -1,0 +1,300 @@
+2025-10-15T13:40:05.606+03:00  INFO 2220 --- [main] ru.practicum.shareit.ShareItTests        : Starting ShareItTests using Java 21.0.8 with PID 2220 (started by NTony in D:\dev\java-shareit)
+2025-10-15T13:40:05.636+03:00 DEBUG 2220 --- [main] ru.practicum.shareit.ShareItTests        : Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-10-15T13:40:05.637+03:00  INFO 2220 --- [main] ru.practicum.shareit.ShareItTests        : The following 1 profile is active: "test"
+2025-10-15T13:40:08.473+03:00  INFO 2220 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-15T13:40:08.576+03:00  INFO 2220 --- [main] ru.practicum.shareit.ShareItTests        : Started ShareItTests in 3.511 seconds (process running for 6.075)
+2025-10-15T13:56:52.080+03:00  INFO 47016 --- [main] ru.practicum.shareit.ShareItTests        : Starting ShareItTests using Java 21.0.8 with PID 47016 (started by NTony in D:\dev\java-shareit)
+2025-10-15T13:56:52.083+03:00 DEBUG 47016 --- [main] ru.practicum.shareit.ShareItTests        : Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-10-15T13:56:52.083+03:00  INFO 47016 --- [main] ru.practicum.shareit.ShareItTests        : The following 1 profile is active: "test"
+2025-10-15T13:56:54.466+03:00  INFO 47016 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-15T13:56:54.557+03:00  INFO 47016 --- [main] ru.practicum.shareit.ShareItTests        : Started ShareItTests in 2.907 seconds (process running for 4.398)
+2025-10-15T13:57:07.623+03:00  INFO 28540 --- [main] ru.practicum.shareit.ShareItApp          : Starting ShareItApp using Java 21.0.8 with PID 28540 (D:\dev\java-shareit\target\classes started by NTony in D:\dev\java-shareit)
+2025-10-15T13:57:07.625+03:00 DEBUG 28540 --- [main] ru.practicum.shareit.ShareItApp          : Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-10-15T13:57:07.627+03:00  INFO 28540 --- [main] ru.practicum.shareit.ShareItApp          : No active profile set, falling back to 1 default profile: "default"
+2025-10-15T13:57:09.190+03:00  INFO 28540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-15T13:57:09.205+03:00  INFO 28540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-15T13:57:09.205+03:00  INFO 28540 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2025-10-15T13:57:09.284+03:00  INFO 28540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-15T13:57:09.284+03:00  INFO 28540 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1595 ms
+2025-10-15T13:57:10.097+03:00  INFO 28540 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-15T13:57:10.208+03:00  INFO 28540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-15T13:57:10.224+03:00  INFO 28540 --- [main] ru.practicum.shareit.ShareItApp          : Started ShareItApp in 3.164 seconds (process running for 3.799)
+2025-10-15T13:57:23.360+03:00  INFO 28540 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-15T13:57:23.361+03:00  INFO 28540 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-15T13:57:23.362+03:00  INFO 28540 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-15T13:57:23.650+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Sam Stracke, email=Ricky.Beatty@hotmail.com)
+2025-10-15T13:57:23.652+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Checking email existence: Ricky.Beatty@hotmail.com, excludeUserId: null
+2025-10-15T13:57:23.654+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Email Ricky.Beatty@hotmail.com exists: false
+2025-10-15T13:57:23.655+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Sam Stracke, email=Ricky.Beatty@hotmail.com)
+2025-10-15T13:57:23.655+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : New user saved with id: 1
+2025-10-15T13:57:23.656+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : User created successfully: 1
+2025-10-15T13:57:23.917+03:00  WARN 28540 --- [http-nio-8080-exec-3] r.p.shareit.exception.ErrorHandler       : Method argument validation failed: {error=Email cannot be blank}
+2025-10-15T13:57:24.107+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Melody Leannon, email=Whitney_Hand25@hotmail.com)
+2025-10-15T13:57:24.108+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Checking email existence: Whitney_Hand25@hotmail.com, excludeUserId: null
+2025-10-15T13:57:24.108+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Email Whitney_Hand25@hotmail.com exists: false
+2025-10-15T13:57:24.108+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Melody Leannon, email=Whitney_Hand25@hotmail.com)
+2025-10-15T13:57:24.109+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : New user saved with id: 2
+2025-10-15T13:57:24.109+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserController  : User created successfully: 2
+2025-10-15T13:57:24.156+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Carlton Carter, email=Whitney_Hand25@hotmail.com)
+2025-10-15T13:57:24.157+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Checking email existence: Whitney_Hand25@hotmail.com, excludeUserId: null
+2025-10-15T13:57:24.157+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Email Whitney_Hand25@hotmail.com exists: true
+2025-10-15T13:57:24.157+03:00  WARN 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserController  : Email already exists during creation: Whitney_Hand25@hotmail.com
+2025-10-15T13:57:24.159+03:00  WARN 28540 --- [http-nio-8080-exec-6] r.p.shareit.exception.ErrorHandler       : Email already exists: Email already exists: Whitney_Hand25@hotmail.com
+2025-10-15T13:57:24.369+03:00  WARN 28540 --- [http-nio-8080-exec-7] r.p.shareit.exception.ErrorHandler       : Method argument validation failed: {error=Email should be valid}
+2025-10-15T13:57:24.554+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Morris Predovic, email=Rusty_Stamm55@yahoo.com)
+2025-10-15T13:57:24.554+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Checking email existence: Rusty_Stamm55@yahoo.com, excludeUserId: null
+2025-10-15T13:57:24.554+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Email Rusty_Stamm55@yahoo.com exists: false
+2025-10-15T13:57:24.554+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Morris Predovic, email=Rusty_Stamm55@yahoo.com)
+2025-10-15T13:57:24.554+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : New user saved with id: 3
+2025-10-15T13:57:24.554+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : User created successfully: 3
+2025-10-15T13:57:24.596+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserController  : Updating user with id: 3, data: UserUpdateDto(name=Benny Waelchi, email=Cale44@hotmail.com)
+2025-10-15T13:57:24.597+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Checking email existence: Cale44@hotmail.com, excludeUserId: 3
+2025-10-15T13:57:24.598+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Email Cale44@hotmail.com exists: false
+2025-10-15T13:57:24.598+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Finding user by id: 3
+2025-10-15T13:57:24.599+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Checking email existence: Cale44@hotmail.com, excludeUserId: 3
+2025-10-15T13:57:24.599+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Email Cale44@hotmail.com exists: false
+2025-10-15T13:57:24.599+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Saving user: User(id=3, name=Benny Waelchi, email=Cale44@hotmail.com)
+2025-10-15T13:57:24.599+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : User updated: 3
+2025-10-15T13:57:24.599+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserController  : User updated successfully: 3
+2025-10-15T13:57:24.772+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Latoya Collier, email=Doyle_Tillman81@hotmail.com)
+2025-10-15T13:57:24.772+03:00 DEBUG 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserRepository  : Checking email existence: Doyle_Tillman81@hotmail.com, excludeUserId: null
+2025-10-15T13:57:24.773+03:00 DEBUG 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserRepository  : Email Doyle_Tillman81@hotmail.com exists: false
+2025-10-15T13:57:24.773+03:00 DEBUG 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Latoya Collier, email=Doyle_Tillman81@hotmail.com)
+2025-10-15T13:57:24.773+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserRepository  : New user saved with id: 4
+2025-10-15T13:57:24.773+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserController  : User created successfully: 4
+2025-10-15T13:57:24.803+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : Updating user with id: 4, data: UserUpdateDto(name=Marvin Littel, email=null)
+2025-10-15T13:57:24.803+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Finding user by id: 4
+2025-10-15T13:57:24.803+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Saving user: User(id=4, name=Marvin Littel, email=Doyle_Tillman81@hotmail.com)
+2025-10-15T13:57:24.804+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : User updated: 4
+2025-10-15T13:57:24.804+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : User updated successfully: 4
+2025-10-15T13:57:24.988+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Julian Huel, email=Jake.Legros@gmail.com)
+2025-10-15T13:57:24.988+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Checking email existence: Jake.Legros@gmail.com, excludeUserId: null
+2025-10-15T13:57:24.988+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Email Jake.Legros@gmail.com exists: false
+2025-10-15T13:57:24.988+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Julian Huel, email=Jake.Legros@gmail.com)
+2025-10-15T13:57:24.988+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : New user saved with id: 5
+2025-10-15T13:57:24.988+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserController  : User created successfully: 5
+2025-10-15T13:57:25.021+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserController  : Updating user with id: 5, data: UserUpdateDto(name=null, email=Ciara48@gmail.com)
+2025-10-15T13:57:25.022+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Checking email existence: Ciara48@gmail.com, excludeUserId: 5
+2025-10-15T13:57:25.022+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Email Ciara48@gmail.com exists: false
+2025-10-15T13:57:25.022+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Finding user by id: 5
+2025-10-15T13:57:25.022+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Checking email existence: Ciara48@gmail.com, excludeUserId: 5
+2025-10-15T13:57:25.022+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Email Ciara48@gmail.com exists: false
+2025-10-15T13:57:25.023+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Saving user: User(id=5, name=Julian Huel, email=Ciara48@gmail.com)
+2025-10-15T13:57:25.023+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : User updated: 5
+2025-10-15T13:57:25.023+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserController  : User updated successfully: 5
+2025-10-15T13:57:25.208+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Norma Labadie, email=Brionna_Kassulke@gmail.com)
+2025-10-15T13:57:25.208+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Checking email existence: Brionna_Kassulke@gmail.com, excludeUserId: null
+2025-10-15T13:57:25.208+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Email Brionna_Kassulke@gmail.com exists: false
+2025-10-15T13:57:25.208+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Norma Labadie, email=Brionna_Kassulke@gmail.com)
+2025-10-15T13:57:25.209+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : New user saved with id: 6
+2025-10-15T13:57:25.209+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserController  : User created successfully: 6
+2025-10-15T13:57:25.217+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Tracy Ondricka, email=Annalise_Balistreri63@gmail.com)
+2025-10-15T13:57:25.217+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Checking email existence: Annalise_Balistreri63@gmail.com, excludeUserId: null
+2025-10-15T13:57:25.217+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Email Annalise_Balistreri63@gmail.com exists: false
+2025-10-15T13:57:25.217+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Tracy Ondricka, email=Annalise_Balistreri63@gmail.com)
+2025-10-15T13:57:25.217+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : New user saved with id: 7
+2025-10-15T13:57:25.217+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserController  : User created successfully: 7
+2025-10-15T13:57:25.258+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserController  : Updating user with id: 7, data: UserUpdateDto(name=Mack Hirthe, email=Brionna_Kassulke@gmail.com)
+2025-10-15T13:57:25.258+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserRepository  : Checking email existence: Brionna_Kassulke@gmail.com, excludeUserId: 7
+2025-10-15T13:57:25.258+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserRepository  : Email Brionna_Kassulke@gmail.com exists: true
+2025-10-15T13:57:25.258+03:00  WARN 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserController  : Email already exists during update: Brionna_Kassulke@gmail.com
+2025-10-15T13:57:25.259+03:00  WARN 28540 --- [http-nio-8080-exec-7] r.p.shareit.exception.ErrorHandler       : Email already exists: Email already exists: Brionna_Kassulke@gmail.com
+2025-10-15T13:57:25.444+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Bernadette Bogan, email=Monty_Rosenbaum85@gmail.com)
+2025-10-15T13:57:25.444+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : Checking email existence: Monty_Rosenbaum85@gmail.com, excludeUserId: null
+2025-10-15T13:57:25.444+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : Email Monty_Rosenbaum85@gmail.com exists: false
+2025-10-15T13:57:25.444+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Bernadette Bogan, email=Monty_Rosenbaum85@gmail.com)
+2025-10-15T13:57:25.444+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : New user saved with id: 8
+2025-10-15T13:57:25.444+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserController  : User created successfully: 8
+2025-10-15T13:57:25.477+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : Getting user by id: 8
+2025-10-15T13:57:25.477+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Finding user by id: 8
+2025-10-15T13:57:25.662+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Raymond O'Connell, email=Sofia_Dooley@hotmail.com)
+2025-10-15T13:57:25.662+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Checking email existence: Sofia_Dooley@hotmail.com, excludeUserId: null
+2025-10-15T13:57:25.662+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Email Sofia_Dooley@hotmail.com exists: false
+2025-10-15T13:57:25.662+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Raymond O'Connell, email=Sofia_Dooley@hotmail.com)
+2025-10-15T13:57:25.663+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : New user saved with id: 9
+2025-10-15T13:57:25.663+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserController  : User created successfully: 9
+2025-10-15T13:57:25.692+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserController  : Deleting user with id: 9
+2025-10-15T13:57:25.692+03:00 DEBUG 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserRepository  : Deleting user by id: 9
+2025-10-15T13:57:25.693+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserRepository  : User deleted: 9
+2025-10-15T13:57:25.693+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.user.UserController  : User deleted successfully: 9
+2025-10-15T13:57:25.877+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Mr. Kelley Lowe, email=Madelyn47@yahoo.com)
+2025-10-15T13:57:25.878+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Checking email existence: Madelyn47@yahoo.com, excludeUserId: null
+2025-10-15T13:57:25.878+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Email Madelyn47@yahoo.com exists: false
+2025-10-15T13:57:25.878+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Mr. Kelley Lowe, email=Madelyn47@yahoo.com)
+2025-10-15T13:57:25.878+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : New user saved with id: 10
+2025-10-15T13:57:25.878+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : User created successfully: 10
+2025-10-15T13:57:25.931+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.item.ItemController  : Creating item for user 10: ItemDto(id=null, name=MAJYG33quS, description=SS8Z7iBiWz4BzWtqS2CB8xB6XVWmM91E1WSbcehBHL31jEK2ui, available=true, requestId=null)
+2025-10-15T13:57:25.932+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Finding user by id: 10
+2025-10-15T13:57:25.932+03:00  INFO 28540 --- [http-nio-8080-exec-3] ru.practicum.shareit.item.ItemService    : Item created with id: 1
+2025-10-15T13:57:25.932+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.item.ItemController  : Item created with id: 1
+2025-10-15T13:57:26.110+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Vivian Moen, email=Elmira.Kuhn3@hotmail.com)
+2025-10-15T13:57:26.110+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Checking email existence: Elmira.Kuhn3@hotmail.com, excludeUserId: null
+2025-10-15T13:57:26.110+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Email Elmira.Kuhn3@hotmail.com exists: false
+2025-10-15T13:57:26.110+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Vivian Moen, email=Elmira.Kuhn3@hotmail.com)
+2025-10-15T13:57:26.110+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : New user saved with id: 11
+2025-10-15T13:57:26.110+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserController  : User created successfully: 11
+2025-10-15T13:57:26.142+03:00  WARN 28540 --- [http-nio-8080-exec-5] r.p.shareit.exception.ErrorHandler       : Missing request header: X-Sharer-User-Id
+2025-10-15T13:57:26.331+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Ellen Hodkiewicz MD, email=Etha_Mitchell@yahoo.com)
+2025-10-15T13:57:26.332+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserRepository  : Checking email existence: Etha_Mitchell@yahoo.com, excludeUserId: null
+2025-10-15T13:57:26.332+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserRepository  : Email Etha_Mitchell@yahoo.com exists: false
+2025-10-15T13:57:26.332+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Ellen Hodkiewicz MD, email=Etha_Mitchell@yahoo.com)
+2025-10-15T13:57:26.332+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserRepository  : New user saved with id: 12
+2025-10-15T13:57:26.332+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserController  : User created successfully: 12
+2025-10-15T13:57:26.362+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.item.ItemController  : Creating item for user 121: ItemDto(id=null, name=xQMCy3fQsd, description=dTPucgorRG9dn93LXb1tAAyK9ni14ZId7SWZtJUmkOWokli4GG, available=true, requestId=null)
+2025-10-15T13:57:26.362+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : Finding user by id: 121
+2025-10-15T13:57:26.363+03:00 ERROR 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : User not found for item creation: 121
+2025-10-15T13:57:26.363+03:00  WARN 28540 --- [http-nio-8080-exec-8] r.p.shareit.exception.ErrorHandler       : User not found: User not found with id: 121
+2025-10-15T13:57:26.547+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Noel Kuvalis, email=Dessie.Durgan10@gmail.com)
+2025-10-15T13:57:26.547+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Checking email existence: Dessie.Durgan10@gmail.com, excludeUserId: null
+2025-10-15T13:57:26.547+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Email Dessie.Durgan10@gmail.com exists: false
+2025-10-15T13:57:26.547+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Noel Kuvalis, email=Dessie.Durgan10@gmail.com)
+2025-10-15T13:57:26.547+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : New user saved with id: 13
+2025-10-15T13:57:26.547+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : User created successfully: 13
+2025-10-15T13:57:26.580+03:00  WARN 28540 --- [http-nio-8080-exec-10] r.p.shareit.exception.ErrorHandler       : Method argument validation failed: {error=Available status cannot be null}
+2025-10-15T13:57:26.674+03:00  WARN 28540 --- [http-nio-8080-exec-2] r.p.shareit.exception.ErrorHandler       : Method argument validation failed: {error=Name cannot be blank}
+2025-10-15T13:57:26.765+03:00  WARN 28540 --- [http-nio-8080-exec-4] r.p.shareit.exception.ErrorHandler       : Method argument validation failed: {error=Description cannot be blank}
+2025-10-15T13:57:26.938+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Kristopher Heller, email=Aurelio_Homenick23@gmail.com)
+2025-10-15T13:57:26.939+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Checking email existence: Aurelio_Homenick23@gmail.com, excludeUserId: null
+2025-10-15T13:57:26.939+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Email Aurelio_Homenick23@gmail.com exists: false
+2025-10-15T13:57:26.939+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Kristopher Heller, email=Aurelio_Homenick23@gmail.com)
+2025-10-15T13:57:26.939+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : New user saved with id: 14
+2025-10-15T13:57:26.939+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserController  : User created successfully: 14
+2025-10-15T13:57:26.953+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.item.ItemController  : Creating item for user 14: ItemDto(id=null, name=AJJ4PZJXA0, description=0Z4icuFeLrhHwyqvZNxKzW9ysK6dFaBLt536vZKcYlfkaKkYkL, available=true, requestId=null)
+2025-10-15T13:57:26.953+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserRepository  : Finding user by id: 14
+2025-10-15T13:57:26.953+03:00  INFO 28540 --- [http-nio-8080-exec-7] ru.practicum.shareit.item.ItemService    : Item created with id: 2
+2025-10-15T13:57:26.953+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.item.ItemController  : Item created with id: 2
+2025-10-15T13:57:26.987+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.item.ItemController  : Updating item 2 for user 14: ItemUpdateDto(name=Rh9PiMdHG8, description=8VifEDBOn0pRzkzMSoZJ3RhmDKwxOl4kYayJ5Fwlhz0fFAGp84, available=true)
+2025-10-15T13:57:26.987+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Getting item by id: 2
+2025-10-15T13:57:26.988+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Updating name for item 2: Rh9PiMdHG8
+2025-10-15T13:57:26.988+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Updating description for item 2: 8VifEDBOn0pRzkzMSoZJ3RhmDKwxOl4kYayJ5Fwlhz0fFAGp84
+2025-10-15T13:57:26.988+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Updating available status for item 2: true
+2025-10-15T13:57:26.988+03:00  INFO 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Item updated: 2
+2025-10-15T13:57:26.988+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.item.ItemController  : Item updated: 2
+2025-10-15T13:57:27.170+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Kara Torphy, email=Krista.Mills70@hotmail.com)
+2025-10-15T13:57:27.170+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Checking email existence: Krista.Mills70@hotmail.com, excludeUserId: null
+2025-10-15T13:57:27.170+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Email Krista.Mills70@hotmail.com exists: false
+2025-10-15T13:57:27.171+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Kara Torphy, email=Krista.Mills70@hotmail.com)
+2025-10-15T13:57:27.171+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : New user saved with id: 15
+2025-10-15T13:57:27.172+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : User created successfully: 15
+2025-10-15T13:57:27.187+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.item.ItemController  : Creating item for user 15: ItemDto(id=null, name=gVTk1FWlHO, description=Zgk2ridisQtcDo1QGy80AKPVI0KVShu9kgZhgmiTDDm8TwVB4M, available=false, requestId=null)
+2025-10-15T13:57:27.187+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Finding user by id: 15
+2025-10-15T13:57:27.188+03:00  INFO 28540 --- [http-nio-8080-exec-10] ru.practicum.shareit.item.ItemService    : Item created with id: 3
+2025-10-15T13:57:27.188+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.item.ItemController  : Item created with id: 3
+2025-10-15T13:57:27.216+03:00  WARN 28540 --- [http-nio-8080-exec-1] r.p.shareit.exception.ErrorHandler       : Missing request header: X-Sharer-User-Id
+2025-10-15T13:57:27.404+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Kerry Larson, email=Gerry.Schultz@gmail.com)
+2025-10-15T13:57:27.405+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Checking email existence: Gerry.Schultz@gmail.com, excludeUserId: null
+2025-10-15T13:57:27.405+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Email Gerry.Schultz@gmail.com exists: false
+2025-10-15T13:57:27.405+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Kerry Larson, email=Gerry.Schultz@gmail.com)
+2025-10-15T13:57:27.405+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : New user saved with id: 16
+2025-10-15T13:57:27.405+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserController  : User created successfully: 16
+2025-10-15T13:57:27.419+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.item.ItemController  : Creating item for user 16: ItemDto(id=null, name=V2d0Xo3JYp, description=Lc1rIlw8JGzcKfzVkaOJFpTBAFuipsNmSBGLZudBrmqqYLtMHI, available=false, requestId=null)
+2025-10-15T13:57:27.419+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.user.UserRepository  : Finding user by id: 16
+2025-10-15T13:57:27.419+03:00  INFO 28540 --- [http-nio-8080-exec-4] ru.practicum.shareit.item.ItemService    : Item created with id: 4
+2025-10-15T13:57:27.419+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.item.ItemController  : Item created with id: 4
+2025-10-15T13:57:27.450+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.item.ItemController  : Updating item 4 for user 17: ItemUpdateDto(name=J4OTCs8Xeu, description=v5UA3XQKUITFNyicXiNOZXlmjJUrQhxPGs7KW7Hts5nEpvFBnC, available=true)
+2025-10-15T13:57:27.450+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] ru.practicum.shareit.item.ItemService    : Getting item by id: 4
+2025-10-15T13:57:27.451+03:00 ERROR 28540 --- [http-nio-8080-exec-5] ru.practicum.shareit.item.ItemService    : User 17 is not the owner of item 4
+2025-10-15T13:57:27.452+03:00  WARN 28540 --- [http-nio-8080-exec-5] r.p.shareit.exception.ErrorHandler       : Item access denied: User is not the owner of this item
+2025-10-15T13:57:27.619+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Valerie Ankunding, email=Albin18@hotmail.com)
+2025-10-15T13:57:27.619+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Checking email existence: Albin18@hotmail.com, excludeUserId: null
+2025-10-15T13:57:27.620+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Email Albin18@hotmail.com exists: false
+2025-10-15T13:57:27.620+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Valerie Ankunding, email=Albin18@hotmail.com)
+2025-10-15T13:57:27.620+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : New user saved with id: 17
+2025-10-15T13:57:27.620+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserController  : User created successfully: 17
+2025-10-15T13:57:27.637+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.item.ItemController  : Creating item for user 17: ItemDto(id=null, name=E5E8bKNNCT, description=a4VpMYqrMtcZcql9JS9pyiZ6XNexKZhT4R1jiY4o7gObDJtKJn, available=false, requestId=null)
+2025-10-15T13:57:27.637+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.user.UserRepository  : Finding user by id: 17
+2025-10-15T13:57:27.637+03:00  INFO 28540 --- [http-nio-8080-exec-7] ru.practicum.shareit.item.ItemService    : Item created with id: 5
+2025-10-15T13:57:27.637+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.item.ItemController  : Item created with id: 5
+2025-10-15T13:57:27.667+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.item.ItemController  : Updating item 5 for user 17: ItemUpdateDto(name=null, description=null, available=true)
+2025-10-15T13:57:27.668+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Getting item by id: 5
+2025-10-15T13:57:27.668+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Updating available status for item 5: true
+2025-10-15T13:57:27.668+03:00  INFO 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Item updated: 5
+2025-10-15T13:57:27.668+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.item.ItemController  : Item updated: 5
+2025-10-15T13:57:27.854+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Phil Von, email=Matt.Green@gmail.com)
+2025-10-15T13:57:27.855+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Checking email existence: Matt.Green@gmail.com, excludeUserId: null
+2025-10-15T13:57:27.855+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Email Matt.Green@gmail.com exists: false
+2025-10-15T13:57:27.855+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Phil Von, email=Matt.Green@gmail.com)
+2025-10-15T13:57:27.856+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : New user saved with id: 18
+2025-10-15T13:57:27.856+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserController  : User created successfully: 18
+2025-10-15T13:57:27.869+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.item.ItemController  : Creating item for user 18: ItemDto(id=null, name=iKVSurs0UC, description=iqZrrAsZXFxmzMD17UarNAsCiLR6YOPABMXudbtKaVWDr6v2C7, available=true, requestId=null)
+2025-10-15T13:57:27.869+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Finding user by id: 18
+2025-10-15T13:57:27.869+03:00  INFO 28540 --- [http-nio-8080-exec-10] ru.practicum.shareit.item.ItemService    : Item created with id: 6
+2025-10-15T13:57:27.869+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.item.ItemController  : Item created with id: 6
+2025-10-15T13:57:27.900+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.item.ItemController  : Updating item 6 for user 18: ItemUpdateDto(name=null, description=kMMonzN7zuHCJj5SHVBgH4GOUTQxLq49AM7ADeZoMYvz1VAUzG, available=null)
+2025-10-15T13:57:27.900+03:00 DEBUG 28540 --- [http-nio-8080-exec-1] ru.practicum.shareit.item.ItemService    : Getting item by id: 6
+2025-10-15T13:57:27.900+03:00 DEBUG 28540 --- [http-nio-8080-exec-1] ru.practicum.shareit.item.ItemService    : Updating description for item 6: kMMonzN7zuHCJj5SHVBgH4GOUTQxLq49AM7ADeZoMYvz1VAUzG
+2025-10-15T13:57:27.900+03:00  INFO 28540 --- [http-nio-8080-exec-1] ru.practicum.shareit.item.ItemService    : Item updated: 6
+2025-10-15T13:57:27.900+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.item.ItemController  : Item updated: 6
+2025-10-15T13:57:28.086+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Rochelle Gerlach Jr., email=Ben.Wisoky15@yahoo.com)
+2025-10-15T13:57:28.086+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Checking email existence: Ben.Wisoky15@yahoo.com, excludeUserId: null
+2025-10-15T13:57:28.086+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Email Ben.Wisoky15@yahoo.com exists: false
+2025-10-15T13:57:28.086+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Rochelle Gerlach Jr., email=Ben.Wisoky15@yahoo.com)
+2025-10-15T13:57:28.086+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : New user saved with id: 19
+2025-10-15T13:57:28.086+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : User created successfully: 19
+2025-10-15T13:57:28.101+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.item.ItemController  : Creating item for user 19: ItemDto(id=null, name=LuNWNp5BPX, description=g9qUWkvNSlg7ffWdJYSILf8Zy4oVgdLdG7jgNbr3Z7772I2h5N, available=false, requestId=null)
+2025-10-15T13:57:28.101+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Finding user by id: 19
+2025-10-15T13:57:28.101+03:00  INFO 28540 --- [http-nio-8080-exec-3] ru.practicum.shareit.item.ItemService    : Item created with id: 7
+2025-10-15T13:57:28.101+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.item.ItemController  : Item created with id: 7
+2025-10-15T13:57:28.119+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.item.ItemController  : Updating item 7 for user 19: ItemUpdateDto(name=S3zYJzyNsY, description=null, available=null)
+2025-10-15T13:57:28.119+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] ru.practicum.shareit.item.ItemService    : Getting item by id: 7
+2025-10-15T13:57:28.119+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] ru.practicum.shareit.item.ItemService    : Updating name for item 7: S3zYJzyNsY
+2025-10-15T13:57:28.119+03:00  INFO 28540 --- [http-nio-8080-exec-4] ru.practicum.shareit.item.ItemService    : Item updated: 7
+2025-10-15T13:57:28.119+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.item.ItemController  : Item updated: 7
+2025-10-15T13:57:28.287+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Cary Turner, email=Lionel_Herman@yahoo.com)
+2025-10-15T13:57:28.288+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Checking email existence: Lionel_Herman@yahoo.com, excludeUserId: null
+2025-10-15T13:57:28.288+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Email Lionel_Herman@yahoo.com exists: false
+2025-10-15T13:57:28.288+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Cary Turner, email=Lionel_Herman@yahoo.com)
+2025-10-15T13:57:28.288+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : New user saved with id: 20
+2025-10-15T13:57:28.288+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserController  : User created successfully: 20
+2025-10-15T13:57:28.303+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.item.ItemController  : Creating item for user 20: ItemDto(id=null, name=bQSUIPoYoM, description=D6yj85H4bfounEqjiRQHHosA5Sxmhvgwvs2tz7t2ufPOKWLSQs, available=false, requestId=null)
+2025-10-15T13:57:28.304+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Finding user by id: 20
+2025-10-15T13:57:28.304+03:00  INFO 28540 --- [http-nio-8080-exec-6] ru.practicum.shareit.item.ItemService    : Item created with id: 8
+2025-10-15T13:57:28.304+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.item.ItemController  : Item created with id: 8
+2025-10-15T13:57:28.335+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.item.ItemController  : Getting item by id: 8
+2025-10-15T13:57:28.335+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] ru.practicum.shareit.item.ItemService    : Getting item by id: 8
+2025-10-15T13:57:28.523+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Josefina Jast, email=Jena.Marvin36@yahoo.com)
+2025-10-15T13:57:28.523+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : Checking email existence: Jena.Marvin36@yahoo.com, excludeUserId: null
+2025-10-15T13:57:28.523+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : Email Jena.Marvin36@yahoo.com exists: false
+2025-10-15T13:57:28.523+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Josefina Jast, email=Jena.Marvin36@yahoo.com)
+2025-10-15T13:57:28.523+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserRepository  : New user saved with id: 21
+2025-10-15T13:57:28.523+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.user.UserController  : User created successfully: 21
+2025-10-15T13:57:28.539+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.item.ItemController  : Creating item for user 21: ItemDto(id=null, name=dkMABjVMMv, description=rM5Z76YAcWGMkc2veS80iE0EImH8aPoQWdbzhLRhpZThip8zyS, available=true, requestId=null)
+2025-10-15T13:57:28.540+03:00 DEBUG 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.user.UserRepository  : Finding user by id: 21
+2025-10-15T13:57:28.540+03:00  INFO 28540 --- [http-nio-8080-exec-9] ru.practicum.shareit.item.ItemService    : Item created with id: 9
+2025-10-15T13:57:28.540+03:00  INFO 28540 --- [http-nio-8080-exec-9] r.practicum.shareit.item.ItemController  : Item created with id: 9
+2025-10-15T13:57:28.555+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.item.ItemController  : Creating item for user 21: ItemDto(id=null, name=gu6JJskGic, description=5j9WyxDZtrN82sC8yAfyUNeOzI4BS3nYuH4tQRZuT9yQFItRhY, available=false, requestId=null)
+2025-10-15T13:57:28.555+03:00 DEBUG 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.user.UserRepository  : Finding user by id: 21
+2025-10-15T13:57:28.556+03:00  INFO 28540 --- [http-nio-8080-exec-10] ru.practicum.shareit.item.ItemService    : Item created with id: 10
+2025-10-15T13:57:28.556+03:00  INFO 28540 --- [http-nio-8080-exec-10] r.practicum.shareit.item.ItemController  : Item created with id: 10
+2025-10-15T13:57:28.599+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.item.ItemController  : Getting items for owner: 21
+2025-10-15T13:57:28.600+03:00 DEBUG 28540 --- [http-nio-8080-exec-1] ru.practicum.shareit.item.ItemService    : Getting items for owner: 21
+2025-10-15T13:57:28.602+03:00  INFO 28540 --- [http-nio-8080-exec-1] r.practicum.shareit.item.ItemController  : Found 2 items for owner 21
+2025-10-15T13:57:28.800+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Johnny Dooley, email=Ole68@hotmail.com)
+2025-10-15T13:57:28.801+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Checking email existence: Ole68@hotmail.com, excludeUserId: null
+2025-10-15T13:57:28.801+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Email Ole68@hotmail.com exists: false
+2025-10-15T13:57:28.801+03:00 DEBUG 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Johnny Dooley, email=Ole68@hotmail.com)
+2025-10-15T13:57:28.801+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserRepository  : New user saved with id: 22
+2025-10-15T13:57:28.801+03:00  INFO 28540 --- [http-nio-8080-exec-2] r.practicum.shareit.user.UserController  : User created successfully: 22
+2025-10-15T13:57:28.816+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.item.ItemController  : Creating item for user 22: ItemDto(id=null, name=NQv8JPv4Hd, description=5WFc7Uhf0W18RjG9AQ3CiZvBX002hHIcfMMEi6rS704tHhbpAL, available=true, requestId=null)
+2025-10-15T13:57:28.816+03:00 DEBUG 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.user.UserRepository  : Finding user by id: 22
+2025-10-15T13:57:28.816+03:00  INFO 28540 --- [http-nio-8080-exec-3] ru.practicum.shareit.item.ItemService    : Item created with id: 11
+2025-10-15T13:57:28.816+03:00  INFO 28540 --- [http-nio-8080-exec-3] r.practicum.shareit.item.ItemController  : Item created with id: 11
+2025-10-15T13:57:28.850+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.item.ItemController  : Searching items with text: 'NQV8JPV4HD'
+2025-10-15T13:57:28.850+03:00 DEBUG 28540 --- [http-nio-8080-exec-4] ru.practicum.shareit.item.ItemService    : Searching items with text: 'NQV8JPV4HD'
+2025-10-15T13:57:28.851+03:00  INFO 28540 --- [http-nio-8080-exec-4] r.practicum.shareit.item.ItemController  : Found 1 items for search 'NQV8JPV4HD'
+2025-10-15T13:57:29.035+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserController  : Creating user: UserDto(id=null, name=Marta Schneider, email=Elvis85@hotmail.com)
+2025-10-15T13:57:29.035+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Checking email existence: Elvis85@hotmail.com, excludeUserId: null
+2025-10-15T13:57:29.036+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Email Elvis85@hotmail.com exists: false
+2025-10-15T13:57:29.036+03:00 DEBUG 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : Saving user: User(id=null, name=Marta Schneider, email=Elvis85@hotmail.com)
+2025-10-15T13:57:29.036+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserRepository  : New user saved with id: 23
+2025-10-15T13:57:29.036+03:00  INFO 28540 --- [http-nio-8080-exec-5] r.practicum.shareit.user.UserController  : User created successfully: 23
+2025-10-15T13:57:29.051+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.item.ItemController  : Creating item for user 23: ItemDto(id=null, name=gfIbtE7t1E, description=sIKKlocxfIEkHv4uwYeFEkQF2Vcppc0DDQclNAFqaVphe5UH07, available=false, requestId=null)
+2025-10-15T13:57:29.052+03:00 DEBUG 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.user.UserRepository  : Finding user by id: 23
+2025-10-15T13:57:29.052+03:00  INFO 28540 --- [http-nio-8080-exec-6] ru.practicum.shareit.item.ItemService    : Item created with id: 12
+2025-10-15T13:57:29.052+03:00  INFO 28540 --- [http-nio-8080-exec-6] r.practicum.shareit.item.ItemController  : Item created with id: 12
+2025-10-15T13:57:29.081+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.item.ItemController  : Searching items with text: 'GFIBTE7T1E'
+2025-10-15T13:57:29.082+03:00 DEBUG 28540 --- [http-nio-8080-exec-7] ru.practicum.shareit.item.ItemService    : Searching items with text: 'GFIBTE7T1E'
+2025-10-15T13:57:29.082+03:00  INFO 28540 --- [http-nio-8080-exec-7] r.practicum.shareit.item.ItemController  : Found 0 items for search 'GFIBTE7T1E'
+2025-10-15T13:57:29.158+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.item.ItemController  : Searching items with text: ''
+2025-10-15T13:57:29.159+03:00 DEBUG 28540 --- [http-nio-8080-exec-8] ru.practicum.shareit.item.ItemService    : Searching items with text: ''
+2025-10-15T13:57:29.159+03:00  INFO 28540 --- [http-nio-8080-exec-8] r.practicum.shareit.item.ItemController  : Found 0 items for search ''
