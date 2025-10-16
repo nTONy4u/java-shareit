@@ -3,18 +3,18 @@ package ru.practicum.shareit.item;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.shareit.exception.ItemAccessDeniedException;
 import ru.practicum.shareit.exception.ItemNotFoundException;
-import ru.practicum.shareit.exception.UserNotFoundException;
 import ru.practicum.shareit.item.model.Item;
 import ru.practicum.shareit.item.repository.ItemRepository;
 import ru.practicum.shareit.user.UserService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service
+@Transactional(readOnly = true)
 public class ItemService {
     private final ItemRepository itemRepository;
     private final UserService userService;
@@ -25,40 +25,30 @@ public class ItemService {
         this.userService = userService;
     }
 
+    @Transactional
     public Item createItem(Item item, Long ownerId) {
-        userService.getUserById(ownerId)
-                .orElseThrow(() -> {
-                    log.error("User not found for item creation: {}", ownerId);
-                    throw new UserNotFoundException("User not found with id: " + ownerId);
-                });
-
-        item.setOwner(ownerId);
+        userService.getUserById(ownerId);
         Item createdItem = itemRepository.save(item);
         log.info("Item created with id: {}", createdItem.getId());
         return createdItem;
     }
 
-    public Optional<Item> getItemById(Long id) {
-        log.debug("Getting item by id: {}", id);
-        return itemRepository.findById(id);
-    }
-
-    public Item getItemByIdOrThrow(Long id) {
-        return getItemById(id)
+    public Item getItemById(Long id) {
+        return itemRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Item not found with id: " + id));
     }
 
     public List<Item> getItemsByOwner(Long ownerId) {
         log.debug("Getting items for owner: {}", ownerId);
-        return itemRepository.findByOwner(ownerId);
+        userService.getUserById(ownerId);
+        return itemRepository.findByOwnerIdOrderById(ownerId);
     }
 
+    @Transactional
     public Item updateItem(Long itemId, Item itemUpdates, Long ownerId) {
+        Item existingItem = getItemById(itemId);
 
-        Item existingItem = getItemByIdOrThrow(itemId);
-
-        if (!existingItem.getOwner().equals(ownerId)) {
-            log.error("User {} is not the owner of item {}", ownerId, itemId);
+        if (!existingItem.getOwner().getId().equals(ownerId)) {
             throw new ItemAccessDeniedException("User is not the owner of this item");
         }
 
@@ -75,18 +65,24 @@ public class ItemService {
             existingItem.setAvailable(itemUpdates.getAvailable());
         }
 
-        Item updatedItem = itemRepository.save(existingItem);
-        log.info("Item updated: {}", itemId);
-        return updatedItem;
+        return itemRepository.save(existingItem);
     }
 
     public List<Item> searchItems(String text) {
         log.debug("Searching items with text: '{}'", text);
-        return itemRepository.search(text);
+        if (text == null || text.isBlank()) {
+            return List.of();
+        }
+        return itemRepository.searchAvailableItems(text);
     }
 
+    @Transactional
     public void deleteItem(Long id) {
         itemRepository.deleteById(id);
         log.info("Item deleted: {}", id);
+    }
+
+    public List<Item> getItemsByRequestId(Long requestId) {
+        return itemRepository.findByRequestId(requestId);
     }
 }
