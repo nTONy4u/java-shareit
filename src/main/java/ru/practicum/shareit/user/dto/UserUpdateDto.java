@@ -1,18 +1,17 @@
-package ru.practicum.shareit.user;
+package ru.practicum.shareit.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * TODO Sprint add-controllers.
- */
+import jakarta.validation.constraints.Email;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private Long id;
+public class UserUpdateDto {
     private String name;
+
+    @Email(message = "Email should be valid")
     private String email;
 }
