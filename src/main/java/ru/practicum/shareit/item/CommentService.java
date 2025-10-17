@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.practicum.shareit.booking.BookingStatus;
 import ru.practicum.shareit.exception.ValidationException;
 import ru.practicum.shareit.item.dto.CommentCreateDto;
 import ru.practicum.shareit.item.model.Comment;
@@ -53,9 +54,5 @@ public class CommentService {
 
     public List<Comment> getCommentsByItemId(Long itemId) {
         return commentRepository.findByItemIdOrderByCreatedDesc(itemId);
-    }
-
-    public List<Comment> getCommentsByItemIds(List<Long> itemIds) {
-        return commentRepository.findByItemIdInOrderByCreatedDesc(itemIds);
     }
 }
