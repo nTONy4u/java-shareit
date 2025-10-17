@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.shareit.booking.BookingService;
 import ru.practicum.shareit.exception.ValidationException;
 import ru.practicum.shareit.item.dto.CommentCreateDto;
 import ru.practicum.shareit.item.model.Comment;
@@ -23,15 +22,15 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final UserService userService;
     private final ItemService itemService;
-    private final BookingService bookingService;
+    private final ItemBookingInfoService itemBookingInfoService;
 
     @Autowired
     public CommentService(CommentRepository commentRepository, UserService userService,
-                          ItemService itemService, BookingService bookingService) {
+                          ItemService itemService, ItemBookingInfoService itemBookingInfoService) {
         this.commentRepository = commentRepository;
         this.userService = userService;
         this.itemService = itemService;
-        this.bookingService = bookingService;
+        this.itemBookingInfoService = itemBookingInfoService;
     }
 
     @Transactional
@@ -39,7 +38,7 @@ public class CommentService {
         User author = userService.getUserById(userId);
         Item item = itemService.getItemById(itemId);
 
-        if (!bookingService.hasUserBookedItem(userId, itemId)) {
+        if (!itemBookingInfoService.hasUserBookedItem(userId, itemId)) {
             throw new ValidationException("User can only comment on items they have booked");
         }
 

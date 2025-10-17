@@ -166,19 +166,4 @@ public class BookingService {
                 throw new ValidationException("Unknown state: " + state);
         }
     }
-
-    public Booking getLastBookingForItem(Long itemId) {
-        return bookingRepository.findFirstByItemIdAndStartBeforeAndStatusOrderByStartDesc(
-                itemId, LocalDateTime.now(), BookingStatus.APPROVED).orElse(null);
-    }
-
-    public Booking getNextBookingForItem(Long itemId) {
-        return bookingRepository.findFirstByItemIdAndStartAfterAndStatusOrderByStartAsc(
-                itemId, LocalDateTime.now(), BookingStatus.APPROVED).orElse(null);
-    }
-
-    public boolean hasUserBookedItem(Long userId, Long itemId) {
-        return !bookingRepository.findCompletedBookingsByBookerAndItem(
-                userId, itemId, LocalDateTime.now(), BookingStatus.APPROVED).isEmpty();
-    }
 }

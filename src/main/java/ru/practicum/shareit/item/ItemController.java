@@ -1,8 +1,8 @@
 package ru.practicum.shareit.item;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import ru.practicum.shareit.booking.Booking;
 import ru.practicum.shareit.item.dto.CommentCreateDto;
 import ru.practicum.shareit.item.dto.CommentDto;
 import ru.practicum.shareit.item.dto.ItemDto;
@@ -32,20 +33,13 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/items")
 @Validated
+@RequiredArgsConstructor
 public class ItemController {
     private final ItemService itemService;
     private final CommentService commentService;
     private final UserService userService;
     private final ItemMapper itemMapper;
-
-    @Autowired
-    public ItemController(ItemService itemService, CommentService commentService,
-                          UserService userService, ItemMapper itemMapper) {
-        this.itemService = itemService;
-        this.commentService = commentService;
-        this.userService = userService;
-        this.itemMapper = itemMapper;
-    }
+    private final ItemBookingInfoService itemBookingInfoService;
 
     @PostMapping
     public ResponseEntity<ItemDto> createItem(@Valid @RequestBody ItemDto itemDto,
@@ -88,7 +82,22 @@ public class ItemController {
         Item item = itemService.getItemById(itemId);
         List<Comment> comments = commentService.getCommentsByItemId(itemId);
 
-        ItemDto itemDto = itemMapper.toItemDto(item, userId);
+        ItemDto.BookingInfo lastBooking = null;
+        ItemDto.BookingInfo nextBooking = null;
+
+        if (item.getOwner() != null && item.getOwner().getId().equals(userId)) {
+            Booking last = itemBookingInfoService.getLastBookingForItem(item.getId());
+            Booking next = itemBookingInfoService.getNextBookingForItem(item.getId());
+
+            if (last != null) {
+                lastBooking = new ItemDto.BookingInfo(last.getId(), last.getBooker().getId());
+            }
+            if (next != null) {
+                nextBooking = new ItemDto.BookingInfo(next.getId(), next.getBooker().getId());
+            }
+        }
+
+        ItemDto itemDto = itemMapper.toItemDto(item, userId, lastBooking, nextBooking);
         itemDto.setComments(comments.stream()
                 .map(CommentMapper::toDto)
                 .collect(Collectors.toList()));
@@ -99,11 +108,29 @@ public class ItemController {
     @GetMapping
     public ResponseEntity<List<ItemDto>> getItemsByOwner(@RequestHeader("X-Sharer-User-Id") Long userId) {
         log.info("Getting items for owner: {}", userId);
-        List<ItemDto> items = itemService.getItemsByOwner(userId).stream()
-                .map(item -> itemMapper.toItemDto(item, userId))
-                .collect(Collectors.toList());
-        log.info("Found {} items for owner {}", items.size(), userId);
-        return ResponseEntity.ok(items);
+        List<Item> items = itemService.getItemsByOwner(userId);
+
+        List<ItemDto> itemDtos = items.stream().map(item -> {
+            ItemDto.BookingInfo lastBooking = null;
+            ItemDto.BookingInfo nextBooking = null;
+
+            if (item.getOwner() != null && item.getOwner().getId().equals(userId)) {
+                Booking last = itemBookingInfoService.getLastBookingForItem(item.getId());
+                Booking next = itemBookingInfoService.getNextBookingForItem(item.getId());
+
+                if (last != null) {
+                    lastBooking = new ItemDto.BookingInfo(last.getId(), last.getBooker().getId());
+                }
+                if (next != null) {
+                    nextBooking = new ItemDto.BookingInfo(next.getId(), next.getBooker().getId());
+                }
+            }
+
+            return itemMapper.toItemDto(item, userId, lastBooking, nextBooking);
+        }).collect(Collectors.toList());
+
+        log.info("Found {} items for owner {}", itemDtos.size(), userId);
+        return ResponseEntity.ok(itemDtos);
     }
 
     @GetMapping("/search")

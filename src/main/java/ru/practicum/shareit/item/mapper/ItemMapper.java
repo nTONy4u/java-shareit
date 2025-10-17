@@ -1,9 +1,6 @@
 package ru.practicum.shareit.item.mapper;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.practicum.shareit.booking.Booking;
-import ru.practicum.shareit.booking.BookingService;
 import ru.practicum.shareit.item.dto.ItemDto;
 import ru.practicum.shareit.item.dto.ItemUpdateDto;
 import ru.practicum.shareit.item.model.Item;
@@ -11,18 +8,12 @@ import ru.practicum.shareit.user.User;
 
 @Component
 public class ItemMapper {
-    private final BookingService bookingService;
-
-    @Autowired
-    public ItemMapper(BookingService bookingService) {
-        this.bookingService = bookingService;
-    }
 
     public ItemDto toItemDto(Item item) {
-        return toItemDto(item, null);
+        return toItemDto(item, null, null, null);
     }
 
-    public ItemDto toItemDto(Item item, Long userId) {
+    public ItemDto toItemDto(Item item, Long userId, ItemDto.BookingInfo lastBooking, ItemDto.BookingInfo nextBooking) {
         ItemDto dto = new ItemDto(
                 item.getId(),
                 item.getName(),
@@ -30,22 +21,9 @@ public class ItemMapper {
                 item.getAvailable(),
                 item.getRequest() != null ? item.getRequest().getId() : null,
                 null,
-                null,
-                null   // nextBooking
+                lastBooking,
+                nextBooking
         );
-
-        if (item.getOwner() != null && item.getOwner().getId().equals(userId)) {
-            Booking lastBooking = bookingService.getLastBookingForItem(item.getId());
-            Booking nextBooking = bookingService.getNextBookingForItem(item.getId());
-
-            if (lastBooking != null) {
-                dto.setLastBooking(new ItemDto.BookingInfo(lastBooking.getId(), lastBooking.getBooker().getId()));
-            }
-
-            if (nextBooking != null) {
-                dto.setNextBooking(new ItemDto.BookingInfo(nextBooking.getId(), nextBooking.getBooker().getId()));
-            }
-        }
 
         return dto;
     }
