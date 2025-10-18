@@ -8,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -33,6 +34,18 @@ public class ErrorHandler {
     public ResponseEntity<Map<String, String>> handleValidationException(ValidationException e) {
         log.warn("Validation error: {}", e.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(createErrorResponse(e.getMessage()));
+    }
+
+    @ExceptionHandler(BookingNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleBookingNotFoundException(BookingNotFoundException e) {
+        log.warn("Booking not found: {}", e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(createErrorResponse(e.getMessage()));
+    }
+
+    @ExceptionHandler(ItemRequestNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleItemRequestNotFoundException(ItemRequestNotFoundException e) {
+        log.warn("Item request not found: {}", e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(createErrorResponse(e.getMessage()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -88,6 +101,14 @@ public class ErrorHandler {
     @ExceptionHandler(ItemAccessDeniedException.class)
     public ResponseEntity<Map<String, String>> handleItemAccessDeniedException(ItemAccessDeniedException e) {
         log.warn("Item access denied: {}", e.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(createErrorResponse(e.getMessage()));
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(createErrorResponse(e.getMessage()));
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Map<String, String>> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        log.warn("Method argument type mismatch: {}", ex.getMessage());
+        Map<String, String> error = new HashMap<>();
+        error.put("error", "Invalid parameter: " + ex.getName());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 }

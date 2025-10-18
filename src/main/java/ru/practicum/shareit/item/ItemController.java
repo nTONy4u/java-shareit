@@ -1,8 +1,8 @@
 package ru.practicum.shareit.item;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,39 +14,52 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.shareit.exception.ItemNotFoundException;
+import ru.practicum.shareit.booking.Booking;
+import ru.practicum.shareit.item.dto.CommentCreateDto;
+import ru.practicum.shareit.item.dto.CommentDto;
 import ru.practicum.shareit.item.dto.ItemDto;
 import ru.practicum.shareit.item.dto.ItemUpdateDto;
+import ru.practicum.shareit.item.mapper.CommentMapper;
 import ru.practicum.shareit.item.mapper.ItemMapper;
+import ru.practicum.shareit.item.model.Comment;
 import ru.practicum.shareit.item.model.Item;
+import ru.practicum.shareit.user.User;
+import ru.practicum.shareit.user.UserService;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-/**
- * TODO Sprint add-controllers.
- */
 
 @Slf4j
 @RestController
 @RequestMapping("/items")
 @Validated
+@RequiredArgsConstructor
 public class ItemController {
     private final ItemService itemService;
-
-    @Autowired
-    public ItemController(ItemService itemService) {
-        this.itemService = itemService;
-    }
+    private final CommentService commentService;
+    private final UserService userService;
+    private final ItemMapper itemMapper;
+    private final ItemBookingInfoService itemBookingInfoService;
 
     @PostMapping
     public ResponseEntity<ItemDto> createItem(@Valid @RequestBody ItemDto itemDto,
                                               @RequestHeader("X-Sharer-User-Id") Long userId) {
         log.info("Creating item for user {}: {}", userId, itemDto);
-        Item item = ItemMapper.toItem(itemDto, userId);
+        User owner = userService.getUserById(userId);
+        Item item = itemMapper.toItem(itemDto, owner);
         Item createdItem = itemService.createItem(item, userId);
         log.info("Item created with id: {}", createdItem.getId());
-        return ResponseEntity.ok(ItemMapper.toItemDto(createdItem));
+        return ResponseEntity.ok(itemMapper.toItemDto(createdItem));
+    }
+
+    @PostMapping("/{itemId}/comment")
+    public ResponseEntity<CommentDto> addComment(
+            @PathVariable Long itemId,
+            @Valid @RequestBody CommentCreateDto commentDto,
+            @RequestHeader("X-Sharer-User-Id") Long userId) {
+        log.info("Adding comment to item {} by user {}: {}", itemId, userId, commentDto);
+        Comment comment = commentService.createComment(commentDto, itemId, userId);
+        return ResponseEntity.ok(CommentMapper.toDto(comment));
     }
 
     @PatchMapping("/{itemId}")
@@ -55,38 +68,76 @@ public class ItemController {
                                               @RequestHeader("X-Sharer-User-Id") Long userId) {
         log.info("Updating item {} for user {}: {}", itemId, userId, itemUpdateDto);
 
-        Item itemUpdates = ItemMapper.toItem(itemUpdateDto, userId);
+        User owner = userService.getUserById(userId);
+        Item itemUpdates = itemMapper.toItem(itemUpdateDto, owner);
         Item updatedItem = itemService.updateItem(itemId, itemUpdates, userId);
         log.info("Item updated: {}", itemId);
-        return ResponseEntity.ok(ItemMapper.toItemDto(updatedItem));
+        return ResponseEntity.ok(itemMapper.toItemDto(updatedItem));
     }
 
     @GetMapping("/{itemId}")
-    public ResponseEntity<ItemDto> getItem(@PathVariable Long itemId) {
-        log.info("Getting item by id: {}", itemId);
-        Item item = itemService.getItemById(itemId)
-                .orElseThrow(() -> {
-                    log.warn("Item not found: {}", itemId);
-                    return new ItemNotFoundException("Item not found with id: " + itemId);
-                });
-        return ResponseEntity.ok(ItemMapper.toItemDto(item));
+    public ResponseEntity<ItemDto> getItem(@PathVariable Long itemId,
+                                           @RequestHeader("X-Sharer-User-Id") Long userId) {
+        log.info("Getting item by id: {} for user {}", itemId, userId);
+        Item item = itemService.getItemById(itemId);
+        List<Comment> comments = commentService.getCommentsByItemId(itemId);
+
+        ItemDto.BookingInfo lastBooking = null;
+        ItemDto.BookingInfo nextBooking = null;
+
+        if (item.getOwner() != null && item.getOwner().getId().equals(userId)) {
+            Booking last = itemBookingInfoService.getLastBookingForItem(item.getId());
+            Booking next = itemBookingInfoService.getNextBookingForItem(item.getId());
+
+            if (last != null) {
+                lastBooking = new ItemDto.BookingInfo(last.getId(), last.getBooker().getId());
+            }
+            if (next != null) {
+                nextBooking = new ItemDto.BookingInfo(next.getId(), next.getBooker().getId());
+            }
+        }
+
+        ItemDto itemDto = itemMapper.toItemDto(item, userId, lastBooking, nextBooking);
+        itemDto.setComments(comments.stream()
+                .map(CommentMapper::toDto)
+                .collect(Collectors.toList()));
+
+        return ResponseEntity.ok(itemDto);
     }
 
     @GetMapping
     public ResponseEntity<List<ItemDto>> getItemsByOwner(@RequestHeader("X-Sharer-User-Id") Long userId) {
         log.info("Getting items for owner: {}", userId);
-        List<ItemDto> items = itemService.getItemsByOwner(userId).stream()
-                .map(ItemMapper::toItemDto)
-                .collect(Collectors.toList());
-        log.info("Found {} items for owner {}", items.size(), userId);
-        return ResponseEntity.ok(items);
+        List<Item> items = itemService.getItemsByOwner(userId);
+
+        List<ItemDto> itemDtos = items.stream().map(item -> {
+            ItemDto.BookingInfo lastBooking = null;
+            ItemDto.BookingInfo nextBooking = null;
+
+            if (item.getOwner() != null && item.getOwner().getId().equals(userId)) {
+                Booking last = itemBookingInfoService.getLastBookingForItem(item.getId());
+                Booking next = itemBookingInfoService.getNextBookingForItem(item.getId());
+
+                if (last != null) {
+                    lastBooking = new ItemDto.BookingInfo(last.getId(), last.getBooker().getId());
+                }
+                if (next != null) {
+                    nextBooking = new ItemDto.BookingInfo(next.getId(), next.getBooker().getId());
+                }
+            }
+
+            return itemMapper.toItemDto(item, userId, lastBooking, nextBooking);
+        }).collect(Collectors.toList());
+
+        log.info("Found {} items for owner {}", itemDtos.size(), userId);
+        return ResponseEntity.ok(itemDtos);
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<ItemDto>> searchItems(@RequestParam String text) {
         log.info("Searching items with text: '{}'", text);
         List<ItemDto> items = itemService.searchItems(text).stream()
-                .map(ItemMapper::toItemDto)
+                .map(itemMapper::toItemDto)
                 .collect(Collectors.toList());
         log.info("Found {} items for search '{}'", items.size(), text);
         return ResponseEntity.ok(items);

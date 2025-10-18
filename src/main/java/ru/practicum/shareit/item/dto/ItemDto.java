@@ -6,9 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * TODO Sprint add-controllers.
- */
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,4 +24,16 @@ public class ItemDto {
     private Boolean available;
 
     private Long requestId;
+    private List<CommentDto> comments;
+
+    private BookingInfo lastBooking;
+    private BookingInfo nextBooking;
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class BookingInfo {
+        private Long id;
+        private Long bookerId;
+    }
 }
