@@ -3,6 +3,10 @@ package ru.practicum.shareit.user;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+<<<<<<< HEAD:shareit-server/src/main/java/ru/practicum/shareit/user/UserController.java
+=======
+import org.springframework.validation.annotation.Validated;
+>>>>>>> 724b90a (feat: implement complete booking system with database integration (#2)):src/main/java/ru/practicum/shareit/user/UserController.java
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -58,11 +62,15 @@ public class UserController {
     @PatchMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @RequestBody UserUpdateDto userUpdateDto) {
         log.info("Updating user with id: {}, data: {}", id, userUpdateDto);
+<<<<<<< HEAD:shareit-server/src/main/java/ru/practicum/shareit/user/UserController.java
 
         User userUpdates = new User();
         userUpdates.setName(userUpdateDto.getName());
         userUpdates.setEmail(userUpdateDto.getEmail());
 
+=======
+        User userUpdates = UserMapper.toUser(userUpdateDto);
+>>>>>>> 724b90a (feat: implement complete booking system with database integration (#2)):src/main/java/ru/practicum/shareit/user/UserController.java
         User updatedUser = userService.updateUser(id, userUpdates);
         log.info("User updated successfully: {}", id);
         return ResponseEntity.ok(UserMapper.toUserDto(updatedUser));

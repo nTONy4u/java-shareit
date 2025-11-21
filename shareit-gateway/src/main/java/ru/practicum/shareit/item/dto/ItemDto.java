@@ -36,4 +36,8 @@ public class ItemDto {
         private Long id;
         private Long bookerId;
     }
+<<<<<<< HEAD:shareit-gateway/src/main/java/ru/practicum/shareit/item/dto/ItemDto.java
 }
+=======
+}
+>>>>>>> 724b90a (feat: implement complete booking system with database integration (#2)):src/main/java/ru/practicum/shareit/item/dto/ItemDto.java
