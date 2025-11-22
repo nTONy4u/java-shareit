@@ -16,11 +16,20 @@ import ru.practicum.shareit.user.UserService;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ItemRequestServiceEdgeCasesTest {
@@ -65,7 +74,8 @@ class ItemRequestServiceEdgeCasesTest {
         when(userService.getUserById(1L)).thenReturn(requestor);
         when(itemRequestRepository.findByRequestorIdOrderByCreatedDesc(1L))
                 .thenReturn(List.of(request));
-        when(itemService.getItemsByRequestId(1L)).thenReturn(List.of(item));
+        when(itemService.getItemsByRequestIds(List.of(1L)))
+                .thenReturn(Map.of(1L, List.of(item)));
 
         List<ItemRequest> result = itemRequestService.getUserRequests(1L);
 
@@ -85,6 +95,8 @@ class ItemRequestServiceEdgeCasesTest {
         List<ItemRequest> result = itemRequestService.getUserRequests(1L);
 
         assertTrue(result.isEmpty());
+
+        verify(itemService, never()).getItemsByRequestIds(anyList());
     }
 
     @Test
@@ -96,7 +108,8 @@ class ItemRequestServiceEdgeCasesTest {
         when(userService.getUserById(1L)).thenReturn(user);
         when(itemRequestRepository.findByRequestorIdNotOrderByCreatedDesc(eq(1L), any(Pageable.class)))
                 .thenReturn(List.of(request));
-        when(itemService.getItemsByRequestId(1L)).thenReturn(Collections.emptyList());
+        when(itemService.getItemsByRequestIds(List.of(1L)))
+                .thenReturn(Map.of(1L, Collections.emptyList()));
 
         List<ItemRequest> result = itemRequestService.getAllRequests(1L, 0, 10);
 

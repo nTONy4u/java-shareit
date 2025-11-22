@@ -10,6 +10,8 @@ import ru.practicum.shareit.item.repository.ItemRepository;
 import ru.practicum.shareit.user.UserService;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -76,5 +78,21 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> getItemsByRequestId(Long requestId) {
         return itemRepository.findByRequestId(requestId);
+    }
+
+    @Override
+    public Map<Long, List<Item>> getItemsByRequestIds(List<Long> requestIds) {
+        if (requestIds == null || requestIds.isEmpty()) {
+            return Map.of();
+        }
+
+        List<Item> allItems = itemRepository.findByRequestIdIn(requestIds);
+
+        return allItems.stream()
+                .filter(item -> item.getRequest() != null)
+                .collect(Collectors.groupingBy(
+                    item -> item.getRequest().getId(),
+                    Collectors.toList()
+                ));
     }
 }

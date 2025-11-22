@@ -16,6 +16,8 @@ import ru.practicum.shareit.user.UserService;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -50,10 +52,9 @@ public class ItemRequestService {
     public List<ItemRequest> getUserRequests(Long requestorId) {
         userService.getUserById(requestorId);
         List<ItemRequest> requests = itemRequestRepository.findByRequestorIdOrderByCreatedDesc(requestorId);
-        requests.forEach(request -> {
-            List<Item> items = itemService.getItemsByRequestId(request.getId());
-            request.setItems(items);
-        });
+
+        populateItemsForRequests(requests);
+
         return requests;
     }
 
@@ -61,10 +62,9 @@ public class ItemRequestService {
         userService.getUserById(userId);
         Pageable pageable = PageRequest.of(from / size, size, Sort.by("created").descending());
         List<ItemRequest> requests = itemRequestRepository.findByRequestorIdNotOrderByCreatedDesc(userId, pageable);
-        requests.forEach(request -> {
-            List<Item> items = itemService.getItemsByRequestId(request.getId());
-            request.setItems(items);
-        });
+
+        populateItemsForRequests(requests);
+
         return requests;
     }
 
@@ -77,5 +77,22 @@ public class ItemRequestService {
         request.setItems(items);
 
         return request;
+    }
+
+    private void populateItemsForRequests(List<ItemRequest> requests) {
+        if (requests == null || requests.isEmpty()) {
+            return;
+        }
+
+        List<Long> requestIds = requests.stream()
+                .map(ItemRequest::getId)
+                .collect(Collectors.toList());
+
+        Map<Long, List<Item>> itemsByRequestId = itemService.getItemsByRequestIds(requestIds);
+
+        requests.forEach(request -> {
+            List<Item> items = itemsByRequestId.getOrDefault(request.getId(), List.of());
+            request.setItems(items);
+        });
     }
 }

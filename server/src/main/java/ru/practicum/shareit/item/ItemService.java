@@ -3,6 +3,7 @@ package ru.practicum.shareit.item;
 import ru.practicum.shareit.item.model.Item;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ItemService {
     Item createItem(Item item, Long ownerId);
@@ -18,4 +19,6 @@ public interface ItemService {
     void deleteItem(Long id);
 
     List<Item> getItemsByRequestId(Long requestId);
+
+    Map<Long, List<Item>> getItemsByRequestIds(List<Long> requestIds);
 }
